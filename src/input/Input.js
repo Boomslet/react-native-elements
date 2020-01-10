@@ -89,7 +89,12 @@ class Input extends React.Component {
     });
 
     return (
-      <View style={StyleSheet.flatten([styles.container, containerStyle])}>
+      <View
+        ref={ref => {
+          this.container = ref;
+        }}
+        style={StyleSheet.flatten([styles.container, containerStyle])}
+      >
         {renderText(
           label,
           { style: labelStyle, ...labelProps },
@@ -105,9 +110,6 @@ class Input extends React.Component {
         >
           {leftIcon && (
             <View
-              ref={ref => {
-                this.container = ref;
-              }}
               style={StyleSheet.flatten([
                 styles.iconContainer,
                 leftIconContainerStyle,
