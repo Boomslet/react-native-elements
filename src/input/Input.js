@@ -89,12 +89,7 @@ class Input extends React.Component {
     });
 
     return (
-      <View
-        ref={ref => {
-          this.container = ref;
-        }}
-        style={StyleSheet.flatten([styles.container, containerStyle])}
-      >
+      <View style={StyleSheet.flatten([styles.container, containerStyle])}>
         {renderText(
           label,
           { style: labelStyle, ...labelProps },
@@ -102,6 +97,9 @@ class Input extends React.Component {
         )}
 
         <Animated.View
+          ref={ref => {
+            this.container = ref;
+          }}
           style={StyleSheet.flatten([
             styles.inputContainer(theme),
             inputContainerStyle,
