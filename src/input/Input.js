@@ -40,6 +40,10 @@ class Input extends React.Component {
     return this.input.isFocused();
   }
 
+  setContainerNativeProps(nativeProps) {
+    this.container.setNativeProps(nativeProps); 
+  }
+
   setNativeProps(nativeProps) {
     this.input.setNativeProps(nativeProps);
   }
@@ -101,6 +105,9 @@ class Input extends React.Component {
         >
           {leftIcon && (
             <View
+              ref={ref => {
+                this.container = ref;
+              }}
               style={StyleSheet.flatten([
                 styles.iconContainer,
                 leftIconContainerStyle,
